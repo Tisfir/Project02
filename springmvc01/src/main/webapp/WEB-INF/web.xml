@@ -1,0 +1,45 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+
+  <!--配置前端控制器-->
+  <servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+          <!--你取的名字-->
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+          <!--你用的jar包-->
+    <init-param>
+          <!--提供全局初始化参数才可以让你写的spring配置文件被加载-->
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:springmvc.xml</param-value>
+          <!--可以给他设置指定值-->
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+          <!-- servlet这个类启动服务器就可以创建这个对象，创建对象时之后，就可以加载配置文件，注解可以被扫到，然后这个就可以变成对象
+          然后依法请求。然后就可以执行了。-->
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+
+  <!--配置解决中文乱码的过滤器-->
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+          <!--除此之外，需要提供初始化参数-->
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>

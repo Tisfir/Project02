@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--开启注解扫描-->
+    <context:component-scan base-package="cn.itcast"/>
+    <!--视图解析器-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <!--以后视图解析的时候，会找这个目录下的文件-->
+        <property name="suffix" value=".jsp"/>
+        <!--你文件的后缀名四什么-->
+    </bean>
+    <!--上面这个class类是固定的，名字自己取，他会用视图解析器帮你跳转页面-->
+
+
+    <!--1.将自定义的Converter注册为Bean，受SpringMVC管理   自定义类型转换器 -->
+    <bean id="stringToDateConverter" class="cn.itcast.exception.utils.StringToDateConverter"/>
+    <!--2.设定自定义Converter服务bean-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <!--3.注入所有的自定义Converter，该设定使用的是同类型覆盖的思想-->
+        <property name="converters">
+            <!--4.set保障同类型转换器仅保留一个，去重规则以Converter<S,T>的泛型为准-->
+            <set>
+                <!--5.具体的类型转换器-->
+                <ref bean="stringToDateConverter"/>
+            </set>
+        </property>
+    </bean>
+
+    <!--开启springMVC框架注解的支持-->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+    <!--把自己写的类型转换器给他生效-->
+</beans>

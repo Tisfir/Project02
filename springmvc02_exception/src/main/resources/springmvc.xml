@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--开启注解扫描-->
+    <context:component-scan base-package="cn.itcast"/>
+    <!--视图解析器-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <!--以后视图解析的时候，会找这个目录下的文件-->
+        <property name="suffix" value=".jsp"/>
+        <!--你文件的后缀名四什么-->
+    </bean>
+    <!--上面这个class类是固定的，名字自己取，他会用视图解析器帮你跳转页面-->
+
+<!--前端控制器，哪些静态资源不拦截-->
+    <mvc:resources mapping="/js/**" location="/js/"/>
+
+<!--    &lt;!&ndash; 设置静态资源不过滤 &ndash;&gt;<mvc:resources location="/css/" mapping="/css/**"/>
+    &lt;!&ndash; 样式 &ndash;&gt;<mvc:resources location="/images/" mapping="/images/**"/>
+    &lt;!&ndash; 图片 &ndash;&gt;<mvc:resources location="/js/" mapping="/js/**"/>-->
+
+
+    <!--/js/**代表这个js文件夹下的任何东西都不拦截-->
+
+<!--配置异常处理器-->
+    <bean id="sysExceptionResolver" class="cn.itcast.exception.SysExceptionResolver"/>
+
+    <!--开启springMVC框架注解的支持-->
+    <mvc:annotation-driven/>
+    <!--把自己写的类型转换器给他生效-->
+</beans>

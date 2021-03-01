@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/untitled/JavaWeb.iml" filepath="$PROJECT_DIR$/untitled/JavaWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Module01/Module01.iml" filepath="$PROJECT_DIR$/Module01/Module01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project02.iml" filepath="$PROJECT_DIR$/Project02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StaticWeb/StaticWeb.iml" filepath="$PROJECT_DIR$/StaticWeb/StaticWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fileuploadserver/fileuploadserver.iml" filepath="$PROJECT_DIR$/fileuploadserver/fileuploadserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springmvc01/springmvc01.iml" filepath="$PROJECT_DIR$/springmvc01/springmvc01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springmvc02_exception/springmvc02_exception.iml" filepath="$PROJECT_DIR$/springmvc02_exception/springmvc02_exception.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springmvc02_fileupload/springmvc02_fileupload.iml" filepath="$PROJECT_DIR$/springmvc02_fileupload/springmvc02_fileupload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springmvc02_interceptor/springmvc02_interceptor.iml" filepath="$PROJECT_DIR$/springmvc02_interceptor/springmvc02_interceptor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springmvc02_response/springmvc02_response.iml" filepath="$PROJECT_DIR$/springmvc02_response/springmvc02_response.iml" />
+    </modules>
+  </component>
+</project>
